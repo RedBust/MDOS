@@ -1,0 +1,63 @@
+a {
+      text-decoration: none;
+	  color:#34BEED
+}
+
+a:hover {
+text-decoration: none;
+color:#348eed
+}
+
+#bar
+{
+	background-image: url(dotline.gif);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    height: 1px;
+}
+
+#noaccount{
+font-family: Arial, Calibri;
+font-size: 100%;
+font-style: normal;
+font-weight:bold;
+}
+
+#contact{
+font-family: Tahoma, Arial;
+font-size: 100%;
+font-style: normal;
+font-weight:bold;
+}
+
+#forum {
+font-family: Tahoma, Arial;
+font-size: 100%;
+font-style: normal;
+font-weight:bold;
+}
+
+#login {
+margin-top:75px;
+}
+
+#mdp {
+margin-left:2px;
+}
+
+#connect {
+text-align:center;
+margin-top:17px;
+background-image:url(fond.png);
+background-repeat:no-repeat;
+background-position:center 45px;
+}
+
+#logo {
+text-align:center;
+}
+
+#error {
+	text-align:center;
+	margin-top:50px;
+}

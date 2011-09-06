@@ -1,0 +1,20 @@
+<div id = "tab"><img src = "template/%default_theme%/attacktab.png" id = "tabimg"></div>
+<div id = "active"><img src = "template/%default_theme%/attaque_c.png" id = ""></div>
+<div><a href="user.php?log=%info_log%&sid=%info_sid%&tab=zomb"><img src = "template/%default_theme%/client_a.png" onmouseover = "this.src='template/%default_theme%/client_h.png'" onmouseout = "this.src = 'template/%default_theme%/client_a.png'"></a></div>
+<div><a href="user.php?log=%info_log%&sid=%info_sid%&tab=log"><img src = "template/%default_theme%/log_a.png"  onmouseover = "this.src='template/%default_theme%/log_h.png'" onmouseout = "this.src = 'template/%default_theme%/log_a.png'"></a></div>
+<form id = "contener" method="post" action = "#">
+<textarea name="textinput" id = "textinput"></textarea>
+<div id = "buttonbar">
+<img src = "template/%default_theme%/check.png" onclick = "document.getElementById('textinput').value = document.getElementById('textinput').value + 'check'">
+<img src = "template/%default_theme%/attack.png" onclick = "document.getElementById('textinput').value = document.getElementById('textinput').value + 'attack'">
+<img src = "template/%default_theme%/else.png" onclick = "document.getElementById('textinput').value = document.getElementById('textinput').value + 'else {'">
+<img src = "template/%default_theme%/}.png" onclick = "document.getElementById('textinput').value = document.getElementById('textinput').value + '}'">
+<img src = "template/%default_theme%/{.png" id = "subbar" onclick = "document.getElementById('textinput').value = document.getElementById('textinput').value + '{'">
+<img src = "template/%default_theme%/restart.png" onclick = "document.getElementById('textinput').value = document.getElementById('textinput').value + 'restart'">
+<img src = "template/%default_theme%/resynchronize.png" onclick = "document.getElementById('textinput').value = document.getElementById('textinput').value + 'resynchronize'">
+<img src = "template/%default_theme%/vegetate.png" onclick = "document.getElementById('textinput').value = document.getElementById('textinput').value + 'check'"></div>
+</br>
+<div id = "send">
+<input border=0 src="template/%default_theme%/send.png" type="image" name = "update" value = "update" align="middle">
+</div>
+</form>
