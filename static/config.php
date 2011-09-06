@@ -3,10 +3,10 @@
 //DO NOT EDIT MANUALLY
 global $salt, $mysql_host, $mysql_mdp, $mysql_log, $mysql_dbname, $default_theme, $url;
 $salt = 'd4$.ds62';
-$mysql_host = 'mysql.alwaysdata.com';
-$mysql_log = 'boboproject';
-$mysql_mdp = 'habibhabib2';
-$mysql_dbname = 'boboproject_mdos';
+$mysql_host = '';
+$mysql_log = '';
+$mysql_mdp = '';
+$mysql_dbname = '';
 $url = 'http://'.$_SERVER['SERVER_NAME'].'/';
 $default_theme = 'BasicBlue';
 ?>
