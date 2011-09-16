@@ -1,6 +1,6 @@
 <?php
 include 'static/config.php';
-include 'core.php';
+include 'api/core.php';
 if ((isset ($_GET["log"])) and (isset ($_GET["sid"])) and (isset ($_GET["tab"]))) {
 	$info_log = $_GET["log"];
 	$info_sid = $_GET["sid"];

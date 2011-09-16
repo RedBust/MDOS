@@ -1,6 +1,6 @@
 <?php
 include 'static/config.php';
-include 'core.php';
+include 'api/core.php';
 $info_error = "";
 if (isset($_GET["session"])) {
 	$info_error = "expire";
