@@ -15,7 +15,7 @@
 			}
 			echo $md_d2;
 		}
-		function HTMLPrintUser($info_sid, $info_log, $tab, $logdata = "") {
+		function HTMLPrintUser($info_sid, $info_log, $tab, $data = "") {
 			include dirname(__FILE__).'/../static/config.php';
 			$content = read_file (dirname(__FILE__).'/../template/'.$default_theme.'/htmlcontent/user.html');
 			$tabcontent = read_file (dirname(__FILE__).'/../template/'.$default_theme.'/htmlcontent/user'.$tab.'.html');
@@ -24,8 +24,8 @@
 			$md_d3 = str_replace ("%default_theme%", $default_theme, $md_d2);
 			$md_d4 = str_replace ("%info_log%", $info_log, $md_d3);
 			$md_d5 = str_replace ("%info_sid%", $info_sid, $md_d4);
-			if ($logdata != "") {
-				$md_d5 = str_replace ("%logdata%", $logdata, $md_d5);
+			if ($data != "") {
+				$md_d5 = str_replace ("%logdata%", $data, $md_d5);
 			}
 			echo $md_d5;
 		}

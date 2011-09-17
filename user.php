@@ -48,6 +48,25 @@ if ((isset ($_GET["log"])) and (isset ($_GET["sid"])) and (isset ($_GET["tab"]))
 					MDOS::HTMLPrintUser ($info_sid, $info_log, $info_tab);
 				break;
 				case "zomb":
+					$logdata = file ("task/rawlog/rawlog.txt");
+						if ($logdata != false) {
+							global $htmdat;
+							for($i=count($logdata);$i>0;$i--){
+								$data = $logdata[$i];
+								list($date, $type, $ip, $error) = explode("|", $data);
+								switch ($type) {
+									case "#0":
+										$htmdat .= '<div class = "lowlevel">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
+									break;
+									case "#1":
+										$htmdat .= '<div class = "midlevel">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
+									break;
+									case "#2":
+										$htmdat .= '<div class = "highlevel">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
+									break;
+								}
+							}
+						}
 					MDOS::HTMLPrintUser ($info_sid, $info_log, $info_tab);
 				break;
 			}
