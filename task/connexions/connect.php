@@ -10,18 +10,18 @@ if ((isset ($_GET['lang'])) and (isset ($_GET['localgateway'])) and (isset($_GET
 		$archetype = $_GET['archetype'];
 		$pcname = $_GET['pcname'];
 		$ram = $_GET['ram'];
-		$ip = $_SERVER['REMOTE_ADDR'];
+		$ip = (MDOS::RetrieveIP());
 		$sid = $_GET['sid'];
 		_register ($ip, $lang, $localgateway, $os, $macadr, $archetype, $pcname, $ram, $ip, $sid);
 		exit;
 	}
 	else {
-		MDOS::WriteLog ($_SERVER['REMOTE_ADDR'], '#2', 'CSRF MDOS attack attempt. (zombie client can not give a bad secure connexion id.)');
+		MDOS::WriteLog ((MDOS::RetrieveIP()), '#2', 'CSRF MDOS attack attempt. (zombie client can not give a bad secure connexion id.)');
 		exit;
 	}
 }
 else {
-	MDOS::WriteLog ($_SERVER['REMOTE_ADDR'], '#2', 'CSRF MDOS attack attempt. (zombie client can not make any registration error.)');
+	MDOS::WriteLog ((MDOS::RetrieveIP()), '#2', 'CSRF MDOS attack attempt. (zombie client can not make any registration error.)');
 	exit;
 }
 

@@ -1,17 +1,17 @@
 a {
-      text-decoration: none;
-	  color:#34BEED
+    text-decoration: none;
+	color:#34BEED
 }
 
 a:hover {
-text-decoration: none;
-color:#348eed
+	text-decoration: none;
+	color:#348eed
 }
 
 textarea {
-font-family:Consolas, Arial;
-font-size:100%;
-font-style: normal;
+	font-family:Consolas, Arial;
+	font-size:100%;
+	font-style: normal;
 }
 
 #clearlog {
@@ -66,30 +66,30 @@ font-style: normal;
 }
 
 #contact{
-font-family: Tahoma, Arial;
-font-size: 100%;
-font-style: normal;
-font-weight:bold;
+	font-family: Tahoma, Arial;
+	font-size: 100%;
+	font-style: normal;
+	font-weight:bold;
 }
 
 #forum {
-font-family: Tahoma, Arial;
-font-size: 100%;
-font-style: normal;
-font-weight:bold;
+	font-family: Tahoma, Arial;
+	font-size: 100%;
+	font-style: normal;
+	font-weight:bold;
 }
 
 #logo {
-text-align:center;
+	text-align:center;
 }
 
 #erreurmsg {
-text-align:center;
+	text-align:center;
 }
 
 #logdata {
-margin-left: 174px;
-margin-top:-145px;
+	margin-left: 174px;
+	margin-top:-145px;
 }
 
 #error {
@@ -97,28 +97,61 @@ margin-top:-145px;
 	margin-top:50px;
 }
 
+.ip {
+	font-family: Arial;
+	font-size: 16px;
+	margin-left:40px;
+	margin-top:-27px;
+}
+
+.flag {
+	margin-top:6px;
+	margin-left:6px;
+}
+
+.updown {
+	margin-left:300px;
+	margin-top:-180px;
+}
+
+.zombbar {
+	margin-top:5px;
+	height:35px;
+	background-image: url(zombbar.png);
+    background-position: left;
+	background-repeat: no-repeat;
+}
+
+.macadr {
+	font-family: Arial;
+	font-size: 16px;
+	color:#058412;
+	margin-left:150px;
+	margin-top:-20px;
+}
+
 .lowlevel{
-margin-top:10px;
-border-radius: 5px;
-border-color:#00bd00;
-background-color:#00bd00;
-width:75%;
+	margin-top:10px;
+	border-radius: 5px;
+	border-color:#00bd00;
+	background-color:#00bd00;
+	width:75%;
 }
 
 .midlevel{
-margin-top:10px;
-border-radius: 5px;
-border-color:#f1fa00;
-background-color:#f1fa00;
-width:75%;
+	margin-top:10px;
+	border-radius: 5px;
+	border-color:#f1fa00;
+	background-color:#f1fa00;
+	width:75%;
 }
 
 .highlevel{
-margin-top:10px;
-border-radius: 5px;
-border-color:#f10400;
-background-color:#f10400;
-width:75%;
+	margin-top:10px;
+	border-radius: 5px;
+	border-color:#f10400;
+	background-color:#f10400;
+	width:75%;
 }
 
 #textinput {
@@ -133,18 +166,23 @@ width:75%;
 }
 
 #splitbar {
-margin-top:10px;
-margin-left:-17.5%;
+	margin-top:10px;
+	margin-left:-17.5%;
 }
 
 #buttonbar {
-margin-left:174px;
+	margin-left:174px;
 }
 
 #subbar {
-margin-left:-4px;
+	margin-left:-4px;
 }
 
 #send {
-margin-left:43%;
+	margin-left:43%;
+}
+
+#zomblist {
+	margin-top:-140px;
+	margin-left:180px;
 }

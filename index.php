@@ -10,7 +10,7 @@ if ((isset($_POST["postaction"])) && (isset ($_POST['login'])) && (isset ($_POST
 	$info_mdp = $_POST['mdp'];
 
 	if ((empty($info_log)) or (empty($info_mdp))) {
-		MDOS::WriteLog($_SERVER['REMOTE_ADDR'], '#0', 'Connexion error (empty input).');
+		MDOS::WriteLog((MDOS::RetrieveIP()), '#0', 'Connexion error (empty input).');
 		$info_error = "champ";
 	}
 	else {
@@ -20,7 +20,7 @@ if ((isset($_POST["postaction"])) && (isset ($_POST['login'])) && (isset ($_POST
 			MDOS::SecureRedirect($httpsp);
 		}
 		else {
-			MDOS::WriteLog($_SERVER['REMOTE_ADDR'], '#0', 'Connexion error (no sql entry correspond).');
+			MDOS::WriteLog((MDOS::RetrieveIP()), '#0', 'Connexion error (no sql entry correspond).');
 			$info_error = "connect";
 		}
 	}

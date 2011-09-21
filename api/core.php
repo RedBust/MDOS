@@ -36,10 +36,8 @@
 			$fpath = (dirname(__FILE__).'/../task/rawlog/rawlog.txt');
 			file_put_contents ($fpath, $s_string."\n", FILE_APPEND);
 		}
-		function DBTryConnect ($log, $pass) {
+		function DBTryConnect ($login, $passwd) {
 			include dirname(__FILE__).'/../static/config.php';
-			$login = $log;
-			$passwd = $pass;
 			$link = mysql_connect($mysql_host, $mysql_log, $mysql_mdp);
 			mysql_select_db($mysql_dbname, $link);
 			$sql = "SELECT * FROM user_account WHERE login = '".(mysql_real_escape_string($login))."' AND password = '".(mysql_real_escape_string($passwd))."' ";
@@ -54,10 +52,9 @@
 		}
 		function DBGetMDP ($logx) {
 			include dirname(__FILE__).'/../static/config.php';
-			$conn = $logx;
 			$link = mysql_connect($mysql_host, $mysql_log, $mysql_mdp);
 			mysql_select_db($mysql_dbname, $link);
-			$sql = "SELECT password FROM user_account WHERE login =  '".(mysql_real_escape_string($conn))."'";
+			$sql = "SELECT password FROM user_account WHERE login =  '".(mysql_real_escape_string($logx))."'";
 			$query = mysql_query($sql);
 			$result =  mysql_result($query,0);
 			mysql_close($link);
@@ -65,10 +62,9 @@
 		}
 		function DBCheckLog ($log) {
 			include dirname(__FILE__).'/../static/config.php';
-			$login = $log;
 			$link = mysql_connect($mysql_host, $mysql_log, $mysql_mdp);
 			mysql_select_db($mysql_dbname, $link);
-			$sql = "SELECT * FROM user_account WHERE login = '".(mysql_real_escape_string($login))."'";
+			$sql = "SELECT * FROM user_account WHERE login = '".(mysql_real_escape_string($log))."'";
 			$query = mysql_query($sql);
 			if ( mysql_num_rows($query) === 1 ) {
 				mysql_close($link);
@@ -81,7 +77,7 @@
 		function SecureCheckSID ($sid, $mdp) {
 			include dirname(__FILE__).'/../static/config.php';
 			$session = (date("z")).(date("d")).(date("g")).(date("f"));
-			$string = ($mdp.$_SERVER['REMOTE_ADDR'].$salt.$session);
+			$string = ($mdp.(MDOS::RetrieveIP()).$salt.$session);
 			$subsid = md5($string);
 			$sidx = substr ($subsid, 0, 6);
 			if ($sid == $sidx) {
@@ -94,7 +90,7 @@
 		function SecureCalcSID ($info_mdp) {
 			include dirname(__FILE__).'/../static/config.php';
 			$session = (date("z")).(date("d")).(date("g")).(date("f"));
-			$string = ($info_mdp.$_SERVER['REMOTE_ADDR'].$salt.$session);
+			$string = ($info_mdp.(MDOS::RetrieveIP()).$salt.$session);
 			$subsid = md5($string);
 			$sid = substr ($subsid, 0, 6);
 			return $sid;
@@ -113,12 +109,22 @@
 			}
 		}
 		function SecureRedirect ($direct) {
-		    if (isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) {
-				echo ('<script type="text/javascript">window.location.href("'.$direct.'");</script>');;
+			if (headers_sent()) 
+			{
+				echo 
+					(isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) 
+					? '<script type="text/javascript">window.location.href("'.$direct.'");</script>' 
+					: '<script type="text/javascript">window.location.replace("'.$direct.'");</script>';
 			}
-			else {
-				echo ('<script type="text/javascript">window.location.replace("'.$direct.'");</script>');
-			}			
+			else
+			{
+				header ('Location: http://www.example.com/');
+				exit;
+			}
+		}
+		function RetrieveIP () {
+			$ip = (!empty($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : (!empty($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : $_SERVER{'REMOTE_ADDR']));
+			return $ip;
 		}
 	}
 	function read_file($sfile) {
