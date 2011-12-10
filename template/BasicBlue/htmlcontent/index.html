@@ -11,6 +11,8 @@
     <meta name="language" content="fr" />
     <meta http-equiv="imagetoolbar" content="no" />
     <link rel="stylesheet" type="text/css" href="template/%default_theme%/main.css">
+	<script src="template/%default_theme%/js/prototype.js" type="text/javascript"></script>
+	<script src="template/%default_theme%/js/scriptaculous.js" type="text/javascript"></script>
 </head>
 <body bgcolor="#FFFFFF">
 <div id = "userbar" align = "right">
@@ -21,6 +23,11 @@
 <div id = "logo"><a  href = "%url%" ><img src="template/%default_theme%/logo_final.png" alt = "MDOS"></a></div>
 <div id = "bar"></div>
 %error%
+<script type = "text/javascript">
+<!--
+Effect.Pulsate('error', 4, 3);
+//-->
+</script>
 <form id = "connect" action="#" method="post">
 <input id="login" type="text" value="" name="login" maxlength = "10">
 <br/>

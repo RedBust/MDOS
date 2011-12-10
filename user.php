@@ -58,6 +58,9 @@ if ((isset ($_GET["log"])) and (isset ($_GET["sid"])) and (isset ($_GET["tab"]))
 								$htmdat .= '<div class = "zombbar"></div>';
 							}
 						}
+						else {
+
+						}
 					$MDOS -> HTMLPrintUser ($info_sid, $info_log, $info_tab, $htmdat);
 				break;
 			}
