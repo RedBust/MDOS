@@ -1,5 +1,4 @@
 <?php
-	error_reporting(E_ALL ^ E_STRICT);
 	class MDOS {
 		function HTMLPrintIndex($error) {
 			include dirname(__FILE__).'/../static/config.php';
@@ -76,9 +75,10 @@
 			}
 		}
 		function SecureCheckSID ($sid, $mdp) {
+			$MDOS = new MDOS;
 			include dirname(__FILE__).'/../static/config.php';
 			$session = (date("z")).(date("d")).(date("g")).(date("f"));
-			$string = ($mdp.(MDOS::RetrieveIP()).$salt.$session);
+			$string = ($mdp.($MDOS -> RetrieveIP()).$salt.$session);
 			$subsid = md5($string);
 			$sidx = substr ($subsid, 0, 6);
 			if ($sid == $sidx) {
@@ -89,9 +89,10 @@
 			}
 		}
 		function SecureCalcSID ($info_mdp) {
+			$MDOS = new MDOS;
 			include dirname(__FILE__).'/../static/config.php';
 			$session = (date("z")).(date("d")).(date("g")).(date("f"));
-			$string = ($info_mdp.(MDOS::RetrieveIP()).$salt.$session);
+			$string = ($info_mdp.($MDOS -> RetrieveIP()).$salt.$session);
 			$subsid = md5($string);
 			$sid = substr ($subsid, 0, 6);
 			return $sid;
