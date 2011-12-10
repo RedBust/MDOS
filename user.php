@@ -1,6 +1,7 @@
 <?php
 include 'static/config.php';
 include 'api/core.php';
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 $MDOS = new MDOS;
 if ((isset ($_GET["log"])) and (isset ($_GET["sid"])) and (isset ($_GET["tab"]))) {
 	$info_log = $_GET["log"];
