@@ -159,6 +159,13 @@ textarea {
 	width:145px;
 }
 
+.loginfo {
+	border: 5px solid white;
+	-moz-box-shadow: 1px 1px 12px #555;
+	-webkit-box-shadow: 1px 1px 12px #555;
+	box-shadow: 1px 1px 12px #555
+}
+
 .lowlevel{
 	margin-top:10px;
 	border-radius: 5px;
@@ -181,6 +188,10 @@ textarea {
 	border-color:#f10400;
 	background-color:#f10400;
 	width:75%;
+}
+
+#merge{
+	margin-top:25px;
 }
 
 #textinput {
@@ -217,7 +228,7 @@ textarea {
 	background-position:0px 0px;
 	height:500px;
 	width:700px;
-	margin-top:-140px;
+	margin-top:-120px;
 	margin-left:175px;
 }
 

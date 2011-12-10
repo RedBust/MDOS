@@ -3,7 +3,9 @@
 <div><a href="user.php?log=%info_log%&sid=%info_sid%&tab=attack"><img src = "template/%default_theme%/attaque_a.png"  onmouseover = "this.src='template/%default_theme%/attaque_h.png'" onmouseout = "this.src = 'template/%default_theme%/attaque_a.png'"></a></div>
 <div><a href="user.php?log=%info_log%&sid=%info_sid%&tab=zomb"><img src = "template/%default_theme%/client_a.png" onmouseover = "this.src='template/%default_theme%/client_h.png'" onmouseout = "this.src = 'template/%default_theme%/client_a.png'"></a></div>
 <div id = "logdata">
-<div id = "loglist">%logdata%
+<div id = "loglist">
+<div id= "merge"></div>
+%logdata%
 <div id = "splitbar"><hr size = "1px" color = "#34BEED" width = "70%"></div>
 <div id = "clearlog" onclick = 'window.location.replace("user.php?log=%info_log%&sid=%info_sid%&tab=log&act=clear");'></div>
 </div>
