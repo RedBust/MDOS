@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL ^ E_STRICT);
 include 'static/config.php';
 include 'api/core.php';
 $info_error = "";

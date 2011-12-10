@@ -1,4 +1,5 @@
 <?php
+	error_reporting(E_ALL ^ E_STRICT);
 	class MDOS {
 		function HTMLPrintIndex($error) {
 			include dirname(__FILE__).'/../static/config.php';
@@ -109,11 +110,11 @@
 			}
 		}
 		function SecureRedirect ($direct) {
-			if (headers_sent()) 
+			if (headers_sent())
 			{
-				echo 
-					(isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false)) 
-					? '<script type="text/javascript">window.location.href("'.$direct.'");</script>' 
+				echo
+					(isset($_SERVER['HTTP_USER_AGENT']) && (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false))
+					? '<script type="text/javascript">window.location.href("'.$direct.'");</script>'
 					: '<script type="text/javascript">window.location.replace("'.$direct.'");</script>';
 			}
 			else
@@ -123,7 +124,7 @@
 			}
 		}
 		function RetrieveIP () {
-			$ip = (!empty($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : (!empty($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : $_SERVER{'REMOTE_ADDR']));
+			$ip = (!empty($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : (!empty($_SERVER['HTTP_CLIENT_IP']) ? $_SERVER['HTTP_CLIENT_IP'] : $_SERVER['REMOTE_ADDR']));
 			return $ip;
 		}
 	}

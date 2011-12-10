@@ -100,18 +100,46 @@ textarea {
 .ip {
 	font-family: Arial;
 	font-size: 16px;
-	margin-left:40px;
+	margin-left:70px;
 	margin-top:-27px;
 }
 
 .flag {
-	margin-top:6px;
-	margin-left:6px;
+	margin-top:4px;
+	margin-left:-430px;
+}
+
+.suptext {
+	line-height:20px;
+	font-family: Arial;
+	font-size: 13px;
+	margin-left:20px;
+}
+
+.os {
+	margin-top:5px;
+}
+
+.title {
+	line-height:20px;
+	font-family: "Tahoma";
+	font-size: 20px;
 }
 
 .updown {
-	margin-left:300px;
-	margin-top:-180px;
+	margin-left:410px;
+	margin-top:-200px;
+}
+
+.supinfo {
+	margin-left:5px;
+	width:432px;
+	height:100px;
+	margin-top:0px;
+	border-left:1px solid #CCCCCC;
+	border-right:1px solid #CCCCCC;
+	border-bottom:1px solid #CCCCCC;
+	background-color:#ededed;
 }
 
 .zombbar {
@@ -126,8 +154,9 @@ textarea {
 	font-family: Arial;
 	font-size: 16px;
 	color:#058412;
-	margin-left:150px;
+	margin-left:180px;
 	margin-top:-20px;
+	width:145px;
 }
 
 .lowlevel{
@@ -182,7 +211,17 @@ textarea {
 	margin-left:43%;
 }
 
-#zomblist {
+#wrapper {
+	background-image:url(title_back.png);
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	height:500px;
+	width:700px;
 	margin-top:-140px;
-	margin-left:180px;
+	margin-left:175px;
+}
+
+#zomblist {
+	margin-top:-490px;
+	margin-left:190px;
 }

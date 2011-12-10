@@ -1,11 +1,12 @@
 <?php
+error_reporting(E_ALL ^ E_STRICT);
 include 'static/config.php';
 include 'api/core.php';
 if ((isset ($_GET["log"])) and (isset ($_GET["sid"])) and (isset ($_GET["tab"]))) {
 	$info_log = $_GET["log"];
 	$info_sid = $_GET["sid"];
 	$info_tab = $_GET["tab"];
-	
+
 	if (MDOS::DBCheckLog($info_log)) {
 		if ((MDOS::SecureCheckSID($info_sid, MDOS::DBGetMDP($info_log)))==true) {
 			switch ($info_tab) {
@@ -43,7 +44,7 @@ if ((isset ($_GET["log"])) and (isset ($_GET["sid"])) and (isset ($_GET["tab"]))
 				break;
 				case "attack":
 					if (isset ($_POST["update"])) {
-						
+
 					}
 					MDOS::HTMLPrintUser ($info_sid, $info_log, $info_tab);
 				break;
