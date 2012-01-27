@@ -161,9 +161,9 @@ textarea {
 
 .loginfo {
 	border: 5px solid white;
-	-moz-box-shadow: 1px 1px 12px #555;
-	-webkit-box-shadow: 1px 1px 12px #555;
-	box-shadow: 1px 1px 12px #555
+	-moz-box-shadow: 1px 1px 6px #555;
+	-webkit-box-shadow: 1px 1px 6px #555;
+	box-shadow: 1px 1px 6px #555
 }
 
 .lowlevel{
