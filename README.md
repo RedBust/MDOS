@@ -18,5 +18,5 @@ Le zombie effectuera les attaques en lisant des informations à partir du master 
 Le programme final sera donc l'interface en ligne PHP et le générateur de client.
 
 Pour plus d'infos :
-Un super cours de Polytech Grenoble sur les botnets, c'est une vraie tuerie (plus axé sur les architectures centralisées) :
+Un super cours de Polytech Grenoble sur les botnets, c'est vraiment une tuerie (plus axé sur les architectures centralisées) :
 http://mescal.imag.f...ssi-Bremond.pdf
