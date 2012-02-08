@@ -171,7 +171,7 @@ textarea {
 	border-radius: 5px;
 	border-color:#00bd00;
 	background-color:#00bd00;
-	width:75%;
+	width:650px;
 }
 
 .midlevel{
@@ -179,7 +179,7 @@ textarea {
 	border-radius: 5px;
 	border-color:#f1fa00;
 	background-color:#f1fa00;
-	width:75%;
+	width:650px;
 }
 
 .highlevel{
@@ -187,7 +187,7 @@ textarea {
 	border-radius: 5px;
 	border-color:#f10400;
 	background-color:#f10400;
-	width:75%;
+	width:650px;
 }
 
 #merge{

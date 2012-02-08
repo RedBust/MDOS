@@ -68,19 +68,19 @@ if ((isset ($_GET["log"])) and (isset ($_GET["sid"])) and (isset ($_GET["tab"]))
 		}
 		else {
 			$MDOS -> WriteLog (($MDOS -> RetrieveIP()), '#1', 'CSRF MDOS attack attempt OR expired session. (a bad secure id given on user page)');
-			$MDOS -> SecureRedirect($url.'index.php?session=0');
+			$MDOS -> SecureRedirect(SYS_URL.'index.php?session=0');
 			exit;
 		}
 	}
 	else {
 		$MDOS -> WriteLog (($MDOS -> RetrieveIP()), '#2', 'CSRF MDOS attack attempt. (a bad log given on user page)');
-		$MDOS -> SecureRedirect ($url);
+		$MDOS -> SecureRedirect (SYS_URL);
 		exit;
 	}
 }
 else {
 		$MDOS -> WriteLog (($MDOS -> RetrieveIP()), '#1', 'CSRF MDOS attack attempt. (no parameters calling user page)');
-		$MDOS -> SecureRedirect ($url);
+		$MDOS -> SecureRedirect (SYS_URL);
 		exit;
 }
 ?>
