@@ -1,0 +1,238 @@
+a {
+    text-decoration: none;
+	color:#34BEED
+}
+
+a:hover {
+	text-decoration: none;
+	color:#348eed
+}
+
+textarea {
+	font-family: Consolas, Arial;
+	font-size:100%;
+	font-style: normal;
+}
+
+#clearlog {
+	margin-top:10px;
+	width:318px;
+	height:30px;
+	background-image: url(clearlog_a.png);
+    background-position: bottom;
+	background-repeat: no-repeat;
+
+}
+
+#clearlog:hover {
+	background-image: url(clearlog_h.png);
+    background-position: bottom;
+	background-repeat: no-repeat;
+}
+
+#clearlog:active {
+	background-image: url(clearlog_c.png);
+    background-position: bottom;
+	background-repeat: no-repeat;
+}
+
+#bar
+{
+	background-image: url(dotline.gif);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    height:1px;
+}
+
+#active
+{
+	margin-top:50px;
+}
+
+#tab {
+	margin-top:50px;
+	background-image: url(fond3.png);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    height: 75px;
+}
+
+#tabimg {
+	margin-left:50px;
+}
+
+#contener {
+	margin-top:-55px;
+}
+
+#contact{
+	font-family: Tahoma, Arial;
+	font-size: 100%;
+	font-style: normal;
+	font-weight:bold;
+}
+
+#forum {
+	font-family: Tahoma, Arial;
+	font-size: 100%;
+	font-style: normal;
+	font-weight:bold;
+}
+
+#logo {
+	text-align:center;
+}
+
+#erreurmsg {
+	text-align:center;
+}
+
+#logdata {
+	margin-top: -490px;
+	margin-left: 190px;
+}
+
+#error {
+	text-align:center;
+	margin-top:50px;
+}
+
+.ip {
+	font-family: Arial;
+	font-size: 16px;
+	margin-left:70px;
+	margin-top:-27px;
+}
+
+.flag {
+	margin-top:4px;
+	margin-left:-430px;
+}
+
+.suptext {
+	line-height:20px;
+	font-family: Arial;
+	font-size: 13px;
+	margin-left:20px;
+}
+
+.os {
+	margin-top:5px;
+}
+
+.title {
+	line-height:20px;
+	font-family: "Tahoma";
+	font-size: 20px;
+}
+
+.updown {
+	margin-left:410px;
+	margin-top:-200px;
+}
+
+.supinfo {
+	margin-left:5px;
+	width:432px;
+	height:100px;
+	margin-top:0px;
+	border-left:1px solid #CCCCCC;
+	border-right:1px solid #CCCCCC;
+	border-bottom:1px solid #CCCCCC;
+	background-color:#ededed;
+}
+
+.zombbar {
+	margin-top:5px;
+	height:35px;
+	background-image: url(zombbar.png);
+    background-position: left;
+	background-repeat: no-repeat;
+}
+
+.macadr {
+	font-family: Arial;
+	font-size: 16px;
+	color:#058412;
+	margin-left:180px;
+	margin-top:-20px;
+	width:145px;
+}
+
+.loginfo {
+	border: 5px solid white;
+	-moz-box-shadow: 1px 1px 6px #555;
+	-webkit-box-shadow: 1px 1px 6px #555;
+	box-shadow: 1px 1px 6px #555
+}
+
+.lowlevel{
+	margin-top:10px;
+	border-radius: 5px;
+	border-color:#00bd00;
+	background-color:#00bd00;
+	width:650px;
+}
+
+.midlevel{
+	margin-top:10px;
+	border-radius: 5px;
+	border-color:#f1fa00;
+	background-color:#f1fa00;
+	width:650px;
+}
+
+.highlevel{
+	margin-top:10px;
+	border-radius: 5px;
+	border-color:#f10400;
+	background-color:#f10400;
+	width:650px;
+}
+
+#merge{
+	margin-top:12px;
+}
+
+#textinput {
+	height: 300px;
+	width:70%;
+	margin-top: -80px;
+	margin-left: 174px;
+	border:2px solid black;
+	border-width:2px;
+	border-radius: 5px;
+	border-color:#C0C0C0;
+}
+
+#splitbar {
+	margin-top:10px;
+	margin-left:-17.5%;
+}
+
+#buttonbar {
+	margin-left:174px;
+}
+
+#subbar {
+	margin-left:-4px;
+}
+
+#send {
+	margin-left:43%;
+}
+
+#wrapper {
+	background-image:url(title_back.png);
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	height:500px;
+	width:700px;
+	margin-top:-135px;
+	margin-left:175px;
+}
+
+#zomblist {
+	margin-top:-490px;
+	margin-left:190px;
+}

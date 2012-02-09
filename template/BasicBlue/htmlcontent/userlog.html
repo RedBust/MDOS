@@ -1,0 +1,15 @@
+<div id = "tab"><img src = "template/%default_theme%/logtab.png" id = "tabimg"></div>
+<div id = "active"><img src = "template/%default_theme%/log_c.png" id = ""></div>
+<div><a href="user.php?log=%info_log%&sid=%info_sid%&tab=attack"><img src = "template/%default_theme%/attaque_a.png"  onmouseover = "this.src='template/%default_theme%/attaque_h.png'" onmouseout = "this.src = 'template/%default_theme%/attaque_a.png'"></a></div>
+<div><a href="user.php?log=%info_log%&sid=%info_sid%&tab=zomb"><img src = "template/%default_theme%/client_a.png" onmouseover = "this.src='template/%default_theme%/client_h.png'" onmouseout = "this.src = 'template/%default_theme%/client_a.png'"></a></div>
+<div id = "wrapper"></div>
+<div id = "logdata">
+<span class = "title">Log d'erreurs</br>
+<div id = "loglist">
+<img src = "template/%default_theme%/splitbar.png"></span>
+<div id= "merge"></div>
+%logdata%
+<div id = "splitbar"><hr size = "1px" color = "#34BEED" width = "70%"></div>
+<div id = "clearlog" onclick = 'window.location.replace("user.php?log=%info_log%&sid=%info_sid%&tab=log&act=clear");'></div>
+</div>
+</div>

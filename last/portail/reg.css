@@ -1,0 +1,70 @@
+a {
+      text-decoration: none;
+	  color:#34BEED
+}
+
+a:hover {
+text-decoration: none;
+color:#348eed
+}
+
+#contact{
+font-family: Tahoma, Arial;
+font-size: 100%;
+font-style: normal;
+font-weight:bold;
+}
+
+
+#forum {
+font-family: Tahoma, Arial;
+font-size: 100%;
+font-style: normal;
+font-weight:bold;
+}
+
+
+#logo {
+text-align:center;
+}
+
+#bar
+{
+	background-image: url(dotline.gif);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    height: 1px;
+}
+
+#register {
+	text-align:left;
+	margin-left:25px;
+}
+
+#posbreaker {
+	margin-top:50px;
+}
+#mdpchecker {
+	margin-left:20px;
+	margin-top:5px;
+}
+
+#button {
+margin-left:145px;
+margin-top:-50px;
+}
+
+#error {
+	text-align:center;
+	margin-top:10px;
+}
+
+#performer {
+	background-image:url(fond2.png);
+	background-repeat:no-repeat;
+	background-position:0px ;
+}
+
+#large {
+	margin-top:100px;
+}
