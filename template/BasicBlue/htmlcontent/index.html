@@ -40,19 +40,16 @@ Effect.Pulsate('error', 4, 3);
 <br/>
 <br/>
 <div id = "bottombar">
-<span id = "chrome" onmouseover = "new Effect.Scale(this.parentNode, 50);" onmouseout = "new Effect.Scale(this.parentNode, 50);">
 <img src = "template/%default_theme%/chrome.png" align = "center" class="bottombar_ico" style = "
 	padding-left: 50%;
 	margin-left: -30px;
 	margin-top: 2px;
 	width: 30px;
-	height: 30px;">
-</span>
-<span id = "firefox" onmouseover = "new Effect.Scale(this.parentNode, 50);" onmouseout = "new Effect.Scale(this.parentNode, 50);">
-<img src = "template/%default_theme%/firefox.png" align = "center" class="bottombar_ico" style = "
+	height: 30px;" id = "chrome" onmouseover = "new Effect.Scale(this.id, 150);return false;" onmouseout = "new Effect.Scale(this.id, 0);">
+<img id = "firefox" onmouseover = "new Effect.Scale(this.id, 150);" onmouseout = "new Effect.Scale(this.id, 0);return false;" src = "template/%default_theme%/firefox.png" align = "center" class="bottombar_ico" style = "
 	margin-top: 2px;
 	width: 30px;
-	height: 30px;"></span>
+	height: 30px;">
 </div>
 </body>
 </html>

