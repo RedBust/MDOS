@@ -15,7 +15,8 @@ textarea {
 }
 
 #clearlog {
-	margin-top:10px;
+	float:left;
+	margin-top:5px;
 	width:318px;
 	height:30px;
 	background-image: url(clearlog_a.png);
@@ -97,6 +98,49 @@ textarea {
 	margin-top:50px;
 }
 
+#bottombar {
+	position: relative;
+	margin-left: 0px;
+	margin-top:15%;
+	width: 100%;
+	height: 35px;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	background-color: #E5E5E5;
+}
+
+.tooltip {
+	padding-top:10px;
+	position:absolute;
+	display:none;
+	background: rgb(35, 35, 35);
+	background: rgba(0, 0, 0, 0.7);
+	background-image: -moz-linear-gradient(top,rgb(113, 113, 113),rgb(35, 35, 35));
+	background-image: -webkit-gradient(linear,left top,left bottom,from(rgb(113, 113, 113)),to(rgb(35, 35, 35)));
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 0 12px #333;
+	-moz-box-shadow: 0 0 12px #333;
+	box-shadow: 0 0 12px #333;
+	font-family: 'Helvetica Neue', Arial, Helvetica;
+	color:#FFFFFF;
+	height:30px;
+	width:310px;
+	margin-top:-50px;
+	margin-left:-160px;
+	vertical-align: center;
+	text-align:center;
+}
+
+#firefox:hover p {
+	display:inline;
+}
+
+#chrome:hover p {
+	display:inline;
+}
+
 .ip {
 	font-family: Arial;
 	font-size: 16px;
@@ -139,7 +183,7 @@ textarea {
 	border-left:1px solid #CCCCCC;
 	border-right:1px solid #CCCCCC;
 	border-bottom:1px solid #CCCCCC;
-	background-color:#ededed;
+	background-color:#ffffff;
 }
 
 .zombbar {
@@ -206,8 +250,9 @@ textarea {
 }
 
 #splitbar {
-	margin-top:10px;
-	margin-left:-17.5%;
+	margin-top:15px;
+	margin-left:-100px;
+	width:900px;
 }
 
 #buttonbar {
@@ -235,4 +280,30 @@ textarea {
 #zomblist {
 	margin-top:-490px;
 	margin-left:190px;
+}
+
+.page {
+	float:right;
+	font-family: "Arial";
+	font-size: 18px;
+	background-image: url(num_a.png);
+	background-repeat:no-repeat;
+	background-position:center 0px;
+	width: 20px;
+	height: 25px;
+	text-align: center;
+	color: rgb(150, 150, 150);
+	font-weight: bold;
+	padding-top: 2px;
+}
+
+.page:hover {
+	background-image:url(num_h.png);
+	color:#FFFFFF;
+}
+
+#pages {
+	float:left;
+	margin-top: 5px;
+	margin-left: 325px;
 }

@@ -1,8 +1,11 @@
 <?php
 include 'static/config.php';
+
 $info_error = "";
 $subscribe = 0;
+
 if (isset($_POST["postaction"])) {
+	
 $info_user = $_POST['username'];
 $info_mdp = $_POST['mdp'];
 $info_mdpconf = $_POST['mdp+'];
