@@ -32,6 +32,9 @@
 				}
 				$md_d5 = str_replace ("%page%", $page_htm);
 			}
+			else {
+				$md_d5 = str_replace ("%page%", '<div onclick = "" class = "page">1</div>');
+			}
 			echo $md_d5;
 		}
 	}
