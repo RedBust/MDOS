@@ -32,17 +32,14 @@
 				}
 				$md_d5 = str_replace ("%page%", $page_htm);
 			}
-			else {
-				$md_d5 = str_replace ("%page%", '<div onclick = "" class = "page">1</div>');
-			}
 			echo $md_d5;
 		}
 	}
-function read_file($sfile) {
-	$fwd = $sfile;
-	$hwd = fopen ($fwd, 'r');
-	$content = fread($hwd, filesize($fwd));
-	fclose($hwd);
-	return $content;
-}
+	function read_file($sfile) {
+		$fwd = $sfile;
+		$hwd = fopen ($fwd, 'r');
+		$content = fread($hwd, filesize($fwd));
+		fclose($hwd);
+		return $content;
+	}
 ?>

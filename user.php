@@ -18,26 +18,33 @@ if ((isset ($_GET["log"])) && (isset ($_GET["sid"])) && (isset ($_GET["tab"]))) 
 						$logdata = file ("task/rawlog/rawlog.txt");
 						$row_log = count ($logdata);
 						$row_end = floor($row_log/7);
+						$rest = ($row_log%7);
 						if ($logdata != false) {
 							global $htmlog;
-							if ($row_log>7) {
-								for($i=$row_log;$i>0;$i--){
-									$data = $logdata[$i];
-									list($date, $type, $ip, $error) = explode("|", $data);
-									switch ($type) {
-										case "#0":
-											$htmlog .= '<div class = "lowlevel loginfo">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
-										break;
-										case "#1":
-											$htmlog .= '<div class = "midlevel loginfo">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
-										break;
-										case "#2":
-											$htmlog .= '<div class = "highlevel loginfo">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
-										break;
+							if ($row_log>7) { /*si il y a plus d'une page */
+								$i = $row_log;
+								while ($i > 0):
+									for($d=7;$d>0;$d--){
+										$data = $logdata[$i];
+										$htmlog .= '<div id = "page'.$d.'">';
+										list($date, $type, $ip, $error) = explode("|", $data);
+										switch ($type) {
+											case "#0":
+												$htmlog .= '<div class = "lowlevel loginfo">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
+											break;
+											case "#1":
+												$htmlog .= '<div class = "midlevel loginfo">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
+											break;
+											case "#2":
+												$htmlog .= '<div class = "highlevel loginfo">&nbsp;<font face = "Arial" size = "4" color ="#EEEEEE">'.$ip.'</font>&nbsp;&nbsp;&nbsp;<font face ="Arial Black" size = "4">'.$date.'</font>&nbsp;&nbsp;<font face = "Arial" size = "4">'.$error.'</font></div>';
+											break;
+										}
+										$htmlog.= '</div>';
+										$i=($i-1);
 									}
-								}
+								endwhile;
 							}
-							else {
+							else { /* si une seule page */
 								for($i=$row_log;$i>0;$i--){
 									$data = $logdata[$i];
 									list($date, $type, $ip, $error) = explode("|", $data);
